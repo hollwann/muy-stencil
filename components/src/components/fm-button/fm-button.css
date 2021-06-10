@@ -1,0 +1,30 @@
+.lds-dual-ring__button:after {
+  content: ' ';
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid black;
+  border-color: black transparent black transparent;
+  animation: lds-dual-ring__button 1.2s linear infinite;
+}
+@keyframes lds-dual-ring__button {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.fm-button {
+  border: 0;
+  align-self: stretch;
+  border-radius: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}

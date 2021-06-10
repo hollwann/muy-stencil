@@ -1,25 +1,35 @@
 <template>
   <div id="app">
-    <muy-input :value="value" label="Vue" placeholder="Test" @eInput="value = $event.target.value"></muy-input>
+    <muy-input
+      :value="value"
+      label="Vue"
+      placeholder="Test"
+      @eInput="value = $event.target.value"
+    ></muy-input>
     <span>{{ value }}</span>
+    <fm-button
+      label="Test botón"
+      @buttonClick="loading = !loading"
+      :loading="loading"
+    />
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
-      value: 'Value'
-    }
+      value: "Value",
+      loading: false,
+    };
   },
   methods: {
     test(event) {
-      console.log(event)
-    }
-  }
-}
+      console.log(event);
+    },
+  },
+};
 </script>
 
 <style>

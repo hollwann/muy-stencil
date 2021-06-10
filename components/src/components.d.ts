@@ -6,7 +6,15 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MuyDatePicker {
+    interface FmButton {
+        /**
+          * The label for the button
+         */
+        "label": string;
+        /**
+          * The flag for loading button
+         */
+        "loading": boolean;
     }
     interface MuyInput {
         /**
@@ -98,27 +106,13 @@ export namespace Components {
          */
         "value": string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
 }
 declare global {
-    interface HTMLMuyDatePickerElement extends Components.MuyDatePicker, HTMLStencilElement {
+    interface HTMLFmButtonElement extends Components.FmButton, HTMLStencilElement {
     }
-    var HTMLMuyDatePickerElement: {
-        prototype: HTMLMuyDatePickerElement;
-        new (): HTMLMuyDatePickerElement;
+    var HTMLFmButtonElement: {
+        prototype: HTMLFmButtonElement;
+        new (): HTMLFmButtonElement;
     };
     interface HTMLMuyInputElement extends Components.MuyInput, HTMLStencilElement {
     }
@@ -126,20 +120,25 @@ declare global {
         prototype: HTMLMuyInputElement;
         new (): HTMLMuyInputElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLElementTagNameMap {
-        "muy-date-picker": HTMLMuyDatePickerElement;
+        "fm-button": HTMLFmButtonElement;
         "muy-input": HTMLMuyInputElement;
-        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface MuyDatePicker {
+    interface FmButton {
+        /**
+          * The label for the button
+         */
+        "label"?: string;
+        /**
+          * The flag for loading button
+         */
+        "loading"?: boolean;
+        /**
+          * Emitted when the control loses focus.
+         */
+        "onButtonClick"?: (event: CustomEvent<any>) => void;
     }
     interface MuyInput {
         /**
@@ -235,33 +234,17 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface IntrinsicElements {
-        "muy-date-picker": MuyDatePicker;
+        "fm-button": FmButton;
         "muy-input": MuyInput;
-        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "muy-date-picker": LocalJSX.MuyDatePicker & JSXBase.HTMLAttributes<HTMLMuyDatePickerElement>;
+            "fm-button": LocalJSX.FmButton & JSXBase.HTMLAttributes<HTMLFmButtonElement>;
             "muy-input": LocalJSX.MuyInput & JSXBase.HTMLAttributes<HTMLMuyInputElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }
